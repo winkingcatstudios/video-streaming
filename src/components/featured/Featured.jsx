@@ -6,22 +6,16 @@ export default function Featured({ type }) {
     <div className="featured">
       {type && (
         <div className="category">
-          <span>{type === "movie" ? "Movies" : "Series"}</span>
+          <span>{type === "oneshots" ? "Oneshots" : "Series"}</span>
           <select name="genre" id="genre">
             <option>Genre</option>
-            <option value="adventure">Adventure</option>
-            <option value="comedy">Comedy</option>
-            <option value="crime">Crime</option>
-            <option value="fantasy">Fantasy</option>
-            <option value="historical">Historical</option>
-            <option value="horror">Horror</option>
-            <option value="romance">Romance</option>
-            <option value="sci-fi">Sci-fi</option>
-            <option value="thriller">Thriller</option>
-            <option value="western">Western</option>
-            <option value="animation">Animation</option>
-            <option value="drama">Drama</option>
-            <option value="documentary">Documentary</option>
+            <option value="5e">D&D 5e</option>
+            <option value="osr">OSR</option>
+            <option value="pathfinder">Pathfinder</option>
+            <option value="cypher">Cypher System</option>
+            <option value="fate">Fate</option>
+            <option value="savage">Savage Worlds</option>
+            <option value="cats">Cats</option>
           </select>
         </div>
       )}
