@@ -1,27 +1,30 @@
-import React from "react";
-import { PlayArrow, InfoOutlined } from "@material-ui/icons";
-
+import { InfoOutlined, PlayArrow } from "@material-ui/icons";
 import "./featured.scss";
 
-const Featured = ({type}) => {
+export default function Featured({ type }) {
   return (
     <div className="featured">
-        {type && (
-            <div className="category">
-                <span>{type === "oneshots" ? "Oneshots" : "Series"}</span>
-                <select name="genre" id="genre">
-                    <option>Genre</option>
-                    <option value="5e">5e</option>
-                    <option value="pathfinder">Pathfinder</option>
-                    <option value="cthulhu">Call of Cthulhu</option>
-                    <option value="osr">OSR</option>
-                    <option value="cypher">Cypher System</option>
-                    <option value="savage">Savage Worlds</option>
-                    <option value="fate">FATE</option>
-                    <option value="cats">Cats</option>
-                </select>
-            </div>
-        )}
+      {type && (
+        <div className="category">
+          <span>{type === "movie" ? "Movies" : "Series"}</span>
+          <select name="genre" id="genre">
+            <option>Genre</option>
+            <option value="adventure">Adventure</option>
+            <option value="comedy">Comedy</option>
+            <option value="crime">Crime</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="historical">Historical</option>
+            <option value="horror">Horror</option>
+            <option value="romance">Romance</option>
+            <option value="sci-fi">Sci-fi</option>
+            <option value="thriller">Thriller</option>
+            <option value="western">Western</option>
+            <option value="animation">Animation</option>
+            <option value="drama">Drama</option>
+            <option value="documentary">Documentary</option>
+          </select>
+        </div>
+      )}
       <img
         src="https://usercontent.one/wp/kirileonard.com/wp-content/uploads/2020/07/LTL_the_drunken_whale_opt.jpg"
         alt=""
@@ -32,12 +35,10 @@ const Featured = ({type}) => {
           alt=""
         />
         <span className="desc">
-          Cras sit amet bibendum arcu, vel lacinia libero. Curabitur accumsan,
-          justo vitae consequat varius, sapien metus consectetur dui, et dictum
-          ligula dui nec quam. Sed molestie lorem vitae hendrerit accumsan.
-          Nulla at sagittis lectus. Aliquam et magna eu nunc egestas finibus.
-          Mauris tristique pellentesque massa ut pellentesque. Maecenas
-          tristique nunc at egestas imperdiet. Mauris sit amet varius sem.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
+          adipisci repellendus eum quasi illo, velit numquam, maxime tempora
+          sint deleniti, aliquid qui? Facilis, adipisci! Ratione hic repudiandae
+          temporibus eum earum?
         </span>
         <div className="buttons">
           <button className="play">
@@ -52,6 +53,4 @@ const Featured = ({type}) => {
       </div>
     </div>
   );
-};
-
-export default Featured;
+}
