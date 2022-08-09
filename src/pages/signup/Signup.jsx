@@ -36,7 +36,7 @@ export default function Signup() {
         <h1>Tabletop role-playing game videos and more.</h1>
         <h2>Full series, oneshots, and extras.</h2>
         <p>
-          Ready to watch? Enter your email to create or restart your membership.
+          Ready to watch? Create an account below.
         </p>
         {!name && (
           <div className="input">
@@ -50,7 +50,7 @@ export default function Signup() {
           <div className="input">
             <input type="email" placeholder="email address" ref={emailRef} />
             <button className="signupButton" onClick={handleEmail}>
-              Get Started
+              Next
             </button>
           </div>
         )} 
@@ -58,7 +58,7 @@ export default function Signup() {
           <form className="input">
             <input type="password" placeholder="password" ref={passwordRef} />
             <button className="signupButton" onClick={handlePassword}>
-              Sign up
+              Finish
             </button>
           </form>
         )}
