@@ -1,11 +1,11 @@
 import "./app.scss"
 import Home from "./pages/home/Home";
-import Register from "./pages/register/Register";
+import Signup from "./pages/signup/Signup";
 import Watch from "./pages/watch/Watch";
 import Login from "./pages/login/Login";
 
 const App = () => {
-  return <Login/>;
+  return <Signup/>;
 };
 
 export default App;

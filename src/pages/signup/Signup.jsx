@@ -1,22 +1,27 @@
 import { useRef } from "react";
 import { useState } from "react";
-import "./register.scss";
+import "./signup.scss";
 
-export default function Register() {
+export default function Signup() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const nameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
 
-  const handleStart = () => {
+  const handleName = () => {
+    setName(nameRef.current.value);
+  };
+  const handleEmail = () => {
     setEmail(emailRef.current.value);
   };
-  const handleFinish = () => {
+  const handlePassword = () => {
     setPassword(passwordRef.current.value);
   };
   return (
-    <div className="register">
+    <div className="signup">
       <div className="top">
         <div className="wrapper">
           <img
@@ -33,18 +38,27 @@ export default function Register() {
         <p>
           Ready to watch? Enter your email to create or restart your membership.
         </p>
-        {!email ? (
+        {!name && (
           <div className="input">
-            <input type="email" placeholder="email address" ref={emailRef} />
-            <button className="registerButton" onClick={handleStart}>
+            <input type="type" placeholder="name" ref={nameRef} />
+            <button className="signupButton" onClick={handleName}>
               Get Started
             </button>
           </div>
-        ) : (
+        )} 
+        {name && !email && (
+          <div className="input">
+            <input type="email" placeholder="email address" ref={emailRef} />
+            <button className="signupButton" onClick={handleEmail}>
+              Get Started
+            </button>
+          </div>
+        )} 
+        {email && !password && (
           <form className="input">
             <input type="password" placeholder="password" ref={passwordRef} />
-            <button className="registerButton" onClick={handleFinish}>
-              Register
+            <button className="signupButton" onClick={handlePassword}>
+              Sign up
             </button>
           </form>
         )}
