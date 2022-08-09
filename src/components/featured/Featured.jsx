@@ -1,7 +1,7 @@
 import { InfoOutlined, PlayArrow } from "@material-ui/icons";
 import "./featured.scss";
 
-export default function Featured({ type }) {
+export default function Featured({type}) {
   return (
     <div className="featured">
       {type && (
@@ -9,7 +9,7 @@ export default function Featured({ type }) {
           <span>{type === "oneshots" ? "Oneshots" : "Series"}</span>
           <select name="genre" id="genre">
             <option>Genre</option>
-            <option value="5e">D&D 5e</option> 
+            <option value="5e">D&D 5e</option>
             <option value="osr">OSR</option>
             <option value="pathfinder">Pathfinder</option>
             <option value="cypher">Cypher System</option>
