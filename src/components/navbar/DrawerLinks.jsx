@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
 import { AuthContext } from "../../context/auth-context";
-import "./NavLinks.css";
+import "./drawerLinks.scss";
 
-const NavLinks = (props) => {
+const DrawerLinks = (props) => {
   const auth = useContext(AuthContext);
 
   return (
@@ -38,4 +38,4 @@ const NavLinks = (props) => {
   );
 };
 
-export default NavLinks;
+export default DrawerLinks;

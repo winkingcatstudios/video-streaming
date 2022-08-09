@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import MainHeader from "./MainHeader";
-import NavLinks from "./NavLinks";
+import DrawerLinks from "./DrawerLinks";
 import SideDrawer from "./SideDrawer";
 import Backdrop from "../uiElements/Backdrop";
 import "./MainNavigation.css";
@@ -23,9 +23,9 @@ const MainNavigation = (props) => {
       {drawerIsOpen && <Backdrop onClick={closeDrawerHandler} />}
 
       <SideDrawer show={drawerIsOpen} onClick={closeDrawerHandler}>
-        <nav className="main-navigation__drawer-nav">
-          <NavLinks />
-        </nav>
+        <div className="main-navigation__drawer-nav">
+          <DrawerLinks />
+        </div>
       </SideDrawer>
 
       <MainHeader>
@@ -38,7 +38,7 @@ const MainNavigation = (props) => {
           <Link to="/">PLACE SHARE</Link>
         </h1>
         <nav className="main-navigation__header-nav">
-          <NavLinks />
+          <DrawerLinks />
         </nav>
       </MainHeader>
     </React.Fragment>

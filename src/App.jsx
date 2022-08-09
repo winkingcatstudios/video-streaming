@@ -1,12 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 import "./app.scss";
 import Home from "./pages/home/Home";
 import Signup from "./pages/signup/Signup";
 import Watch from "./pages/watch/Watch";
 import Login from "./pages/login/Login";
-import MainNavigation from "./components/navbar/MainNavigation"
 import { AuthContext } from "./context/auth-context";
 import { useAuth } from "./hooks/auth-hook";
 
@@ -17,13 +16,14 @@ const App = () => {
 
   const user = true;
 
-  if (token) {
+  if (user) {
     routes = (
       <React.Fragment>
         <Route path="/" element={<Home />} />
         <Route path="/oneshots" element={<Home type="oneshots" />} />
         <Route path="/series" element={<Home type="series" />} />
         <Route path="/watch" element={<Watch />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </React.Fragment>
     );
   } else {
@@ -31,6 +31,7 @@ const App = () => {
       <React.Fragment>
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="*" element={<Navigate to="/signup" replace />} />
       </React.Fragment>
     );
   }
@@ -46,10 +47,7 @@ const App = () => {
       }}
     >
       <Router>
-        <MainNavigation />
-        <main>
           <Routes>{routes}</Routes>
-        </main>
       </Router>
     </AuthContext.Provider>
   );
