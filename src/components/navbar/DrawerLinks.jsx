@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { AuthContext } from "../../context/auth-context";
 import "./drawerLinks.scss";
@@ -8,33 +8,23 @@ const DrawerLinks = (props) => {
   const auth = useContext(AuthContext);
 
   return (
-    <ul className="nav-links">
-      <li>
-        <NavLink exact to="/">
-          ALL USERS
-        </NavLink>
-      </li>
-      {auth.isLoggedIn && (
-        <li>
-          <NavLink to={`/${auth.userId}/places`}>MY PLACES</NavLink>
-        </li>
-      )}
-      {auth.isLoggedIn && (
-        <li>
-          <NavLink to="/places/new">NEW PLACE</NavLink>
-        </li>
-      )}
-      {!auth.isLoggedIn && (
-        <li>
-          <NavLink to="/auth">AUTHENTICATE</NavLink>
-        </li>
-      )}
-      {auth.isLoggedIn && (
-        <li>
-          <button onClick={auth.logout}>LOGOUT</button>
-        </li>
-      )}
-    </ul>
+    <div className="drawerLinks">
+      <Link to="/" className="link">
+        <span>Homepage</span>
+      </Link>
+      <Link to="/series" className="link">
+        <span>Series</span>
+      </Link>
+      <Link to="/oneshots" className="link">
+        <span>Oneshots</span>
+      </Link>
+      <Link to="/" className="link">
+        <span>New and Popular</span>
+      </Link>
+      <Link to="/" className="link">
+        <span>My List</span>
+      </Link>
+    </div>
   );
 };
 
