@@ -1,7 +1,33 @@
 import { InfoOutlined, PlayArrow } from "@material-ui/icons";
+import { useEffect } from "react";
+import { useState } from "react";
+import axios from "axios";
+
 import "./featured.scss";
 
-export default function Featured({type}) {
+export default function Featured({ type }) {
+  const [content, setContent] = useState({});
+
+  useEffect(() => {
+    const getRandomContent = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:5000/api/videos/random?type=${type}`,
+          {
+            headers: {
+              Authorization:
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmYxYjM5OGViNDIxMTEzYmQxY2QzZmEiLCJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NjAxNDYwNzUsImV4cCI6MTY2MDIzMjQ3NX0.g9IlhhJtsYYXKge5kQsEEjjPmapqTcSfkxecv5RK4Y0",
+            },
+          }
+        );
+        setContent(response.data.video[0]);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getRandomContent();
+  }, [type]);
+
   return (
     <div className="featured">
       {type && (
@@ -19,21 +45,10 @@ export default function Featured({type}) {
           </select>
         </div>
       )}
-      <img
-        src="https://usercontent.one/wp/kirileonard.com/wp-content/uploads/2020/07/LTL_the_drunken_whale_opt.jpg"
-        alt=""
-      />
+      <img src={content.image} alt="" />
       <div className="info">
-        <img
-          src="https://winkingcatstudio.com/winkingcatlogo-transparent-white.png"
-          alt=""
-        />
-        <span className="desc">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-          adipisci repellendus eum quasi illo, velit numquam, maxime tempora
-          sint deleniti, aliquid qui? Facilis, adipisci! Ratione hic repudiandae
-          temporibus eum earum?
-        </span>
+        <img src={content.imageTitle} alt="" />
+        <span className="desc">{content.description}</span>
         <div className="buttons">
           <button className="play">
             <PlayArrow />
