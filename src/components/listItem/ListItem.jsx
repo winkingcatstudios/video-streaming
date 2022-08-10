@@ -8,10 +8,16 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import "./listItem.scss";
+import { useNavigate } from "react-router-dom";
 
 export default function ListItem({ index, item }) {
   const [isHovered, setIsHovered] = useState(false);
   const [video, setVideo] = useState({});
+
+  const navigate = useNavigate();
+  const toWatchPage = () => {
+    navigate("/watch", { state: { video: video } });
+  };
 
   useEffect(() => {
     const getVideo = async () => {
@@ -21,7 +27,7 @@ export default function ListItem({ index, item }) {
           {
             headers: {
               Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmYxYjM5OGViNDIxMTEzYmQxY2QzZmEiLCJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NjAwOTc2NjUsImV4cCI6MTY2MDEwMTI2NX0.VcqaMMmH6Sk0UJowWopfIcvQLAmOpGfrNw7KxjJK1Cc",
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmYxYjM5OGViNDIxMTEzYmQxY2QzZmEiLCJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NjAxNDIwMDUsImV4cCI6MTY2MDE0NTYwNX0.zkTGpA_1d5TzQxu5sSCwugaHKcrQX4f0L56nqY6fIOQ",
             },
           }
         );
@@ -43,6 +49,9 @@ export default function ListItem({ index, item }) {
       style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={() => {
+        toWatchPage();
+      }}
     >
       <img src={video.imageThumb} alt="" />
       {isHovered && (

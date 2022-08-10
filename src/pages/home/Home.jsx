@@ -21,7 +21,7 @@ const Home = ({ type }) => {
           {
             headers: {
               Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmYxYjM5OGViNDIxMTEzYmQxY2QzZmEiLCJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NjAwOTc2NjUsImV4cCI6MTY2MDEwMTI2NX0.VcqaMMmH6Sk0UJowWopfIcvQLAmOpGfrNw7KxjJK1Cc",
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmYxYjM5OGViNDIxMTEzYmQxY2QzZmEiLCJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NjAxNDIwMDUsImV4cCI6MTY2MDE0NTYwNX0.zkTGpA_1d5TzQxu5sSCwugaHKcrQX4f0L56nqY6fIOQ",
             },
           }
         );
