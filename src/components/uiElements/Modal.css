@@ -1,5 +1,5 @@
 .modal {
-    z-index: 100;
+    z-index: 999;
     position: fixed;
     top: 22vh;
     left: 10%;
@@ -10,9 +10,10 @@
   }
   
   .modal__header {
-    width: 100%;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
     padding: 1rem 0.5rem;
-    background: #2a006e;
+    background: purple;
     color: white;
   }
   

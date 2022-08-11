@@ -70,7 +70,7 @@ export default function Login() {
         </div>
       </div>
       <div className="container">
-      <ErrorModal error={error} onClear={clearError} />
+        <ErrorModal error={error} onClear={clearError} />
         {isLoading && <LoadingSpinner asOverlay />}
         <form onSubmit={authSubmitHandler}>
           <h1>Sign In</h1>
@@ -78,7 +78,7 @@ export default function Login() {
             element="input"
             id="email"
             type="email"
-            label="E-Mail"
+            label="Email"
             validators={[VALIDATOR_EMAIL()]}
             errorText="Please enter a valid email address."
             onInput={inputHandler}
@@ -101,10 +101,6 @@ export default function Login() {
               <b>Sign up now.</b>
             </Link>
           </span>
-          {/* <small>
-            This page is protected by Google reCAPTCHA to ensure you're not a
-            bot. <b>Learn more</b>.
-          </small> */}
         </form>
       </div>
     </div>
