@@ -45,6 +45,10 @@
       flex-direction: column;
       justify-content: space-around;
 
+      .signUpText{
+        margin-top: 20px;
+      }
+
       input {
         height: 40px;
         border-radius: 5px;
@@ -57,16 +61,16 @@
         }
       }
 
-      button {
-        height: 40px;
-        border-radius: 5px;
-        background-color: purple;
-        color: white;
-        border: none;
-        font-size: 18px;
-        font-weight: 500;
-        cursor: pointer;
-      }
+      // button {
+      //   height: 40px;
+      //   border-radius: 5px;
+      //   background-color: purple;
+      //   color: white;
+      //   border: none;
+      //   font-size: 18px;
+      //   font-weight: 500;
+      //   cursor: pointer;
+      // }
 
       span {
         color: lightgray;

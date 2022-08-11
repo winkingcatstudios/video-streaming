@@ -14,9 +14,7 @@ const App = () => {
 
   let routes;
 
-  const user = true;
-
-  if (user) {
+  if (token) {
     routes = (
       <React.Fragment>
         <Route path="/" element={<Home />} />
