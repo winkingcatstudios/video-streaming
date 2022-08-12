@@ -39,9 +39,10 @@ export default function Featured({ type }) {
             <option value="osr">OSR</option>
             <option value="pathfinder">Pathfinder</option>
             <option value="cypher">Cypher System</option>
-            <option value="fate">Fate</option>
-            <option value="savage">Savage Worlds</option>
+            <option value="cthulhi">Call of Cthulhu</option>
+            <option value="starwars">Star Wars</option>
             <option value="cats">Cats</option>
+            <option value="other">Other</option>
           </select>
         </div>
       )}
