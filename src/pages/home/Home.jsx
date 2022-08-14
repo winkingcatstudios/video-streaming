@@ -6,7 +6,7 @@ import Featured from "../../components/featured/Featured";
 import "./home.scss";
 import List from "../../components/list/List";
 
-const Home = ({ type }) => {
+const Home = ({ type, user }) => {
   const [lists, setLists] = useState([]);
   const [genre, setGenre] = useState(null);
 
@@ -14,9 +14,9 @@ const Home = ({ type }) => {
     const getRandomLists = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/lists/random10${type ? "?type=" + type : ""}${
-            genre ? "&genre=" + genre : ""
-          }`,
+          `http://localhost:5000/api/lists/random10${
+            type ? "?type=" + type : ""
+          }${genre ? "&genre=" + genre : ""}`,
           {
             headers: {
               Authorization:
@@ -35,7 +35,7 @@ const Home = ({ type }) => {
   return (
     <div className="home">
       <Navbar />
-      <Featured type={type} setGenre={setGenre}/>
+      <Featured type={type} setGenre={setGenre} />
       {lists.map((list) => (
         <List list={list} />
       ))}

@@ -6,9 +6,9 @@ import {
 } from "@material-ui/icons";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 import "./listItem.scss";
-import { useNavigate } from "react-router-dom";
 
 export default function ListItem({ index, item }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -65,12 +65,14 @@ export default function ListItem({ index, item }) {
               <ThumbDownOutlined className="icon" />
             </div>
             <div className="itemInfoTop">
-              <span>4 hours</span>
-              <span className="limit">{video.ageLimit}</span>
+              {video.ageLimit !== 0 && (
+                <span className="limit">{video.ageLimit}</span>
+              )}
               <span>{video.year}</span>
             </div>
+            <h1 className="desc">{video.title}</h1>
             <div className="desc">{video.description}</div>
-            <div className="genre">{video.genre}</div>
+            <div className="genre">Genre: {video.genre}</div>
           </div>
         </>
       )}

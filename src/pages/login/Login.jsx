@@ -52,7 +52,7 @@ export default function Login() {
           "content-Type": "application/json",
         }
       );
-      auth.login(responseData.userId, responseData.token);
+      auth.login(responseData.userId, responseData.token, responseData.name);
     } catch (err) {
       // caught in http-hook
     }

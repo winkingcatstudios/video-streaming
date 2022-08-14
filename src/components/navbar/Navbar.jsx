@@ -1,15 +1,18 @@
-import { ArrowDropDown, Notifications, Search, Menu } from "@material-ui/icons";
-import React, { useState } from "react";
+import { ArrowDropDown, Notifications, Search, Menu, AirlineSeatFlat } from "@material-ui/icons";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import SideDrawer from "./SideDrawer";
 import DrawerLinks from "./DrawerLinks";
 import Backdrop from "../uiElements/Backdrop";
+import { AuthContext } from "../../context/auth-context";
 import "./navbar.scss";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
+
+  const auth = useContext(AuthContext);
 
   const openDrawerHandler = () => {
     setDrawerIsOpen(true);
@@ -62,22 +65,21 @@ const Navbar = () => {
             </div>
           </div>
           <div className="right">
-            <Search className="icon" />
-            <span>KID</span>
-            <Notifications className="icon" />
-            <img
+            {/* <Search className="icon" /> */}
+            {/* <span>{auth.userId? user.name : "User"}</span> */}
+            {/* <Notifications className="icon" /> */}
+            {/* <img
               src="https://upload.wikimedia.org/wikipedia/en/6/62/Kermit_the_Frog.jpg"
               alt=""
-            />
+            /> */}
             <div className="profile">
               <ArrowDropDown className="icon" />
               <div className="options">
                 {/* <Link to="/" className="link"> */}
                 <span>Settings</span>
                 {/* </Link> */}
-                {/* <Link to="/" className="link"> */}
-                <span>Logout</span>
-                {/* </Link> */}
+
+                <span onClick={auth.logout}>Logout</span>
               </div>
             </div>
           </div>

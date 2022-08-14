@@ -16,7 +16,7 @@ export default function Watch() {
         </div>
       </Link>
       <video
-        className="video"
+        className="videoNoCrop"
         autoPlay
         progress
         controls
