@@ -10,7 +10,7 @@ import { AuthContext } from "./context/auth-context";
 import { useAuth } from "./hooks/auth-hook";
 
 const App = () => {
-  const { token, login, logout, userId } = useAuth();
+  const { token, login, logout, userId, name } = useAuth();
 
   let routes;
 
@@ -40,6 +40,7 @@ const App = () => {
         isLoggedIn: !!token,
         token: token,
         userId: userId,
+        name: name,
         login: login,
         logout: logout,
       }}
