@@ -56,9 +56,12 @@ const Navbar = () => {
               <Link to="/oneshots" className="link">
                 <span>Oneshots</span>
               </Link>
-              <Link to="/" className="link">
-                <span>New and Popular</span>
+              <Link to="/cats" className="link">
+                <span>Cats</span>
               </Link>
+              {/* <Link to="/" className="link">
+                <span>New and Popular</span>
+              </Link> */}
               <Link to="/" className="link">
                 <span>My List</span>
               </Link>
@@ -66,7 +69,7 @@ const Navbar = () => {
           </div>
           <div className="right">
             {/* <Search className="icon" /> */}
-            {/* <span>{auth.userId? user.name : "User"}</span> */}
+            <span>{auth.name}</span>
             {/* <Notifications className="icon" /> */}
             {/* <img
               src="https://upload.wikimedia.org/wikipedia/en/6/62/Kermit_the_Frog.jpg"

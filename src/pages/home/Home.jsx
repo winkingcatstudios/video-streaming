@@ -5,8 +5,9 @@ import Navbar from "../../components/navbar/Navbar";
 import Featured from "../../components/featured/Featured";
 import "./home.scss";
 import List from "../../components/list/List";
+import ComingSoon from "../../components/comingSoon/ComingSoon";
 
-const Home = ({ type, user }) => {
+const Home = ({ type }) => {
   const [lists, setLists] = useState([]);
   const [genre, setGenre] = useState(null);
 
@@ -32,13 +33,40 @@ const Home = ({ type, user }) => {
     getRandomLists();
   }, [type, genre]);
 
+  let content;
+
+  if (type === "oneshots") {
+    content = (
+      <ComingSoon />
+      )
+  } else if (type === "series") {
+    content = (
+      <ComingSoon />
+      )
+  } else if (type === "cats") {
+    content = (
+      <React.Fragment>
+        <Featured type={type} setGenre={setGenre} />
+        {lists.map((list) => (
+          <List list={list} />
+        ))}
+      </React.Fragment>
+      )
+  } else {
+    content = (
+      <React.Fragment>
+        <Featured type={type} setGenre={setGenre} />
+        {lists.map((list) => (
+          <List list={list} />
+        ))}
+      </React.Fragment>
+      )
+  }
+
   return (
     <div className="home">
       <Navbar />
-      <Featured type={type} setGenre={setGenre} />
-      {lists.map((list) => (
-        <List list={list} />
-      ))}
+      {content}
     </div>
   );
 };

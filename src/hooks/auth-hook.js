@@ -55,6 +55,7 @@ export const useAuth = () => {
     ) {
       login(
         storedData.userId,
+        storedData.name,
         storedData.token,
         new Date(storedData.expiration)
       );

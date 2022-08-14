@@ -1,0 +1,13 @@
+.comingSoon {
+  height: 89.3vh;
+  position: relative;
+  background-color: var(--main-color);
+
+  .info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 100px;
+    color: white;
+  }
+}

@@ -36,7 +36,7 @@ export default function Featured({ type, setGenre }) {
 
   return (
     <div className="featured">
-      {type && (
+      {type && type !== "cats" && (
         <div className="category">
           <span>{type === "oneshots" ? "Oneshots" : "Series"}</span>
           <select
@@ -45,14 +45,13 @@ export default function Featured({ type, setGenre }) {
             onChange={(e) => setGenre(e.target.value)}
           >
             <option>Genre</option>
+            <option value="other">Other</option>
             <option value="5e">D&D 5e</option>
             <option value="osr">OSR</option>
             <option value="pathfinder">Pathfinder</option>
             <option value="cypher">Cypher System</option>
             <option value="cthulhi">Call of Cthulhu</option>
             <option value="starwars">Star Wars</option>
-            <option value="cats">Cats</option>
-            <option value="other">Other</option>
           </select>
         </div>
       )}

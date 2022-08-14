@@ -20,6 +20,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/oneshots" element={<Home type="oneshots" />} />
         <Route path="/series" element={<Home type="series" />} />
+        <Route path="/cats" element={<Home type="cats" />} />
         <Route path="/watch" element={<Watch />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </React.Fragment>
