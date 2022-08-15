@@ -1,15 +1,28 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import React, { Suspense } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
 import "./app.scss";
-import Home from "./pages/home/Home";
-import Signup from "./pages/signup/Signup";
-import Watch from "./pages/watch/Watch";
-import Login from "./pages/login/Login";
-import MyList from "./pages/myList/MyList";
-import Settings from "./pages/settings/Settings";
+// import Home from "./pages/home/Home";
+// import Signup from "./pages/signup/Signup";
+// import Watch from "./pages/watch/Watch";
+// import Login from "./pages/login/Login";
+// import MyList from "./pages/myList/MyList";
+// import Settings from "./pages/settings/Settings";
+import LoadingSpinner from "./components/uiElements/LoadingSpinner";
 import { AuthContext } from "./context/auth-context";
 import { useAuth } from "./hooks/auth-hook";
+
+const Home = React.lazy(() => import("./pages/home/Home"));
+const Signup = React.lazy(() => import("./pages/signup/Signup"));
+const Watch = React.lazy(() => import("./pages/watch/Watch"));
+const Login = React.lazy(() => import("./pages/login/Login"));
+const MyList = React.lazy(() => import("./pages/myList/MyList"));
+const Settings = React.lazy(() => import("./pages/settings/Settings"));
 
 const App = () => {
   const { token, login, logout, userId, name } = useAuth();
@@ -50,9 +63,17 @@ const App = () => {
         logout: logout,
       }}
     >
-      <Router>
+      <Suspense
+        fallback={
+          <div className="center">
+            <LoadingSpinner />
+          </div>
+        }
+      >
+        <Router>
           <Routes>{routes}</Routes>
-      </Router>
+        </Router>
+      </Suspense>
     </AuthContext.Provider>
   );
 };
