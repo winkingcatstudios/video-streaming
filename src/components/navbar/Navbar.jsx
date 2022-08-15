@@ -62,7 +62,7 @@ const Navbar = () => {
               {/* <Link to="/" className="link">
                 <span>New and Popular</span>
               </Link> */}
-              <Link to="/" className="link">
+              <Link to="/myList" className="link">
                 <span>My List</span>
               </Link>
             </div>
@@ -78,9 +78,9 @@ const Navbar = () => {
             <div className="profile">
               <ArrowDropDown className="icon" />
               <div className="options">
-                {/* <Link to="/" className="link"> */}
+                <Link to="/settings" className="link">
                 <span>Settings</span>
-                {/* </Link> */}
+                </Link>
 
                 <span onClick={auth.logout}>Logout</span>
               </div>

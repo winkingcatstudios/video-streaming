@@ -39,7 +39,7 @@
 
       .menuIcon {
         width: 50px;
-        height: 50px;
+        height: 50;
         color: white;
       }
 
@@ -95,6 +95,7 @@
             display: flex;
             flex-direction: column;
             position: absolute;
+            padding: 10px;
           }
         }
       }
