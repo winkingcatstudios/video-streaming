@@ -46,6 +46,7 @@ const Navbar = () => {
               src="https://winkingcatstudio.com/winkingcatlogo-transparent-white.png"
               alt=""
             />
+            <h1 className="titleName">DICE CATS</h1>
             <div className="navLinks">
               <Link to="/" className="link">
                 <span>Homepage</span>

@@ -24,7 +24,7 @@ const DrawerLinks = (props) => {
       {/* <Link to="/" className="link">
         <span>New and Popular</span>
       </Link> */}
-      <Link to="/" className="link">
+      <Link to="/myList" className="link">
         <span>My List</span>
       </Link>
     </div>
