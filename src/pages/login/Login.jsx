@@ -41,7 +41,7 @@ export default function Login() {
 
     try {
       const responseData = await sendRequest(
-        "http://localhost:5000/api/users/login",
+        `${process.env.REACT_APP_BACKEND_URL}/users/login`,
         "POST",
         JSON.stringify({
           email: formState.inputs.email.value,
