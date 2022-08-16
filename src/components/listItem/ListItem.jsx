@@ -4,7 +4,7 @@ import {
   ThumbUpAltOutlined,
   ThumbDownOutlined,
 } from "@material-ui/icons";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -51,7 +51,7 @@ export default function ListItem({ index, item }) {
     >
       <img src={video.imageThumb} alt="" />
       {isHovered && (
-        <>
+        <React.Fragment>
           <video src={video.trailerVideo} autoPlay={true} loop />
           <div className="itemInfo">
             <div className="icons">
@@ -70,7 +70,7 @@ export default function ListItem({ index, item }) {
             <div className="desc">{video.description}</div>
             <div className="genre">Genre: {video.genre}</div>
           </div>
-        </>
+        </React.Fragment>
       )}
     </div>
   );
