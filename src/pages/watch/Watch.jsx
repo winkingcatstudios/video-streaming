@@ -18,8 +18,9 @@ export default function Watch() {
       <video
         className="videoNoCrop"
         autoPlay
-        progress
+        progress="true"
         controls
+        controlsList="nodownload"
         src={video.fullVideo}
       />
     </div>

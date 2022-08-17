@@ -36,31 +36,27 @@ const Home = ({ type }) => {
   let content;
 
   if (type === "oneshots") {
-    content = (
-      <ComingSoon />
-      )
+    content = <ComingSoon />;
   } else if (type === "series") {
-    content = (
-      <ComingSoon />
-      )
+    content = <ComingSoon />;
   } else if (type === "cats") {
     content = (
       <React.Fragment>
         <Featured type={type} setGenre={setGenre} />
         {lists.map((list) => (
-          <List list={list} />
+          <List key={list._id} list={list} />
         ))}
       </React.Fragment>
-      )
+    );
   } else {
     content = (
       <React.Fragment>
         <Featured type={type} setGenre={setGenre} />
         {lists.map((list) => (
-          <List list={list} />
+          <List key={list._id} list={list} />
         ))}
       </React.Fragment>
-      )
+    );
   }
 
   return (

@@ -52,7 +52,7 @@ export default function ListItem({ index, item }) {
       <img src={video.imageThumb} alt="" />
       {isHovered && (
         <React.Fragment>
-          <video src={video.trailerVideo} autoPlay={true} loop />
+          {/* <video src={video.trailerVideo} autoPlay={true} loop /> */}
           <div className="itemInfo">
             <div className="icons">
               <PlayArrow className="icon" />
