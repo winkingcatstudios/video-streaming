@@ -7,6 +7,8 @@ import "./home.scss";
 import List from "../../components/list/List";
 import ComingSoon from "../../components/comingSoon/ComingSoon";
 
+import Slider from '../../components/slider/Slider'
+
 const Home = ({ type }) => {
   const [lists, setLists] = useState([]);
   const [genre, setGenre] = useState(null);

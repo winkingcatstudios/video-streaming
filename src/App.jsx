@@ -7,12 +7,6 @@ import {
 } from "react-router-dom";
 
 import "./app.scss";
-// import Home from "./pages/home/Home";
-// import Signup from "./pages/signup/Signup";
-// import Watch from "./pages/watch/Watch";
-// import Login from "./pages/login/Login";
-// import MyList from "./pages/myList/MyList";
-// import Settings from "./pages/settings/Settings";
 import LoadingSpinner from "./components/uiElements/LoadingSpinner";
 import { AuthContext } from "./context/auth-context";
 import { useAuth } from "./hooks/auth-hook";
