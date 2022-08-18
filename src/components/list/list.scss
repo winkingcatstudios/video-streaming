@@ -1,10 +1,10 @@
 .list {
   width: 100%;
-  margin-top: 50px;
+  margin-top: 70px;
 
   .listTitle {
-    color: white;
-    font-size: 25px;
+    color: rgb(240, 240, 240);
+    font-size: 28px;
     font-weight: 500;
     margin-left: 70px;
   }
@@ -34,7 +34,7 @@
     .container {
       margin-left: 70px;
       display: flex;
-      margin-top: 10px;
+      margin-top: 15px;
       width: max-content;
       transform: translateX(0px);
       transition: all 1s ease;
