@@ -1,15 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
+import { Close } from "@material-ui/icons";
 
 import Backdrop from "./Backdrop";
-import "./Modal.css";
+import "./Modal.scss";
 
 const ModalOverlap = (props) => {
   const content = (
     <div className={`modal ${props.className}`} style={props.style}>
       <header className={`modal__header ${props.headerClass}`}>
         <h2>{props.header}</h2>
+        <Close onClick={props.onCancel} className="icon" />
       </header>
       <form
         onSubmit={

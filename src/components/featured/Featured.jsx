@@ -4,15 +4,14 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+import InfoModal from "../../components/uiElements/InfoModal";
 import "./featured.scss";
 
 export default function Featured({ type, setGenre }) {
   const [content, setContent] = useState({});
+  const [moreInfo, setMoreInfo] = useState(false);
 
   const navigate = useNavigate();
-  const toWatchPage = () => {
-    navigate("/watch", { state: { video: content } });
-  };
 
   useEffect(() => {
     const getRandomContent = async () => {
@@ -33,6 +32,19 @@ export default function Featured({ type, setGenre }) {
     };
     getRandomContent();
   }, [type]);
+
+  const toWatchPage = () => {
+    navigate("/watch", { state: { video: content } });
+  };
+
+  const handleMoreInfoOn = () => {
+    setMoreInfo(true);
+  };
+
+  const handleMoreInfoOff = (e) => {
+    e.preventDefault();
+    setMoreInfo(false);
+  };
 
   return (
     <div className="featured">
@@ -55,6 +67,8 @@ export default function Featured({ type, setGenre }) {
           </select>
         </div>
       )}
+      {moreInfo && <InfoModal content={content} onClear={handleMoreInfoOff} onPlay={toWatchPage} />}
+    
       <img src={content.image} alt="" />
       <div className="info">
         <img src={content.imageTitle} alt="" />
@@ -71,7 +85,12 @@ export default function Featured({ type, setGenre }) {
               <PlayArrow />
               <span>Play</span>
             </button>
-            <button className="more">
+            <button
+              className="more"
+              onClick={() => {
+                handleMoreInfoOn();
+              }}
+            >
               <InfoOutlined />
               <span>Info</span>
             </button>
