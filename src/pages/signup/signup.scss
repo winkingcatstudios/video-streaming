@@ -101,3 +101,58 @@
     }
   }
 }
+
+@media screen and (max-width: 480px) {
+  .signup {
+    .top {
+      .wrapper {
+        padding: 20px 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .logo {
+          height: 100px;
+        }
+      }
+    }
+
+    .container {
+      h1 {
+        margin: 0px 20px;
+        font-size: 22px;
+        text-align: center;
+      }
+      h2 {
+        font-size: 18px;
+        text-align: center;
+      }
+      p {
+        font-size: 15px;
+        text-align: center;
+      }
+      .form {
+        margin: 0px 30px;
+        width: 300px;
+
+        .signAndSwap {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          margin-left: 20px;
+
+          .signUpText {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 22px;
+            color: lightgray;
+
+            .signUpBold {
+              color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+}

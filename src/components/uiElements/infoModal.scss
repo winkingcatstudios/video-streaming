@@ -64,3 +64,73 @@
     }
   }
 }
+
+@media screen and (max-width: 480px) {
+  .infoContainer {
+    background-color: var(--main-color);
+    overflow: hidden;
+    color: white;
+    border-radius: none;
+  
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      cursor: pointer;
+    }
+  
+    .iconsInfo {
+      display: flex;
+      margin: 10px;
+      align-items: center;
+  
+      .icon {
+        border: 2px solid white;
+        padding: 5px;
+        border-radius: 50%;
+        margin-right: 10px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+  
+      .yearAndRating {
+        align-items: center;
+        margin-left: 10px;
+        margin-top: 2px;
+        font-size: 18px;
+  
+        .year {
+          margin-right: 20px;
+        }
+  
+        .limit {
+          border: 2px solid white;
+          padding: 5px;
+          font-size: 16px;
+        }
+      }
+    }
+  
+    .itemInfoTop {
+      margin: 10px;
+  
+      .title {
+        font-weight: 600;
+        font-size: 20px;
+        margin-top: 10px;
+      }
+  
+      .typeAndGenre {
+        font-weight: 300;
+        color: lightgray;
+        margin-top: 5px;
+        font-size: 14px;
+      }
+  
+      p {
+        margin-top: 15px;
+        height: 5vh;
+      }
+    }
+  }
+}

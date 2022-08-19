@@ -91,6 +91,7 @@ export default function Login() {
             errorText="Please enter a valid password (at least 12 characters)"
             onInput={inputHandler}
           />
+          <div className="loginAndSwap">
           <Button type="submit" disabled={!formState.isValid}>
             LOGIN
           </Button>
@@ -100,6 +101,7 @@ export default function Login() {
               <b>Sign up now.</b>
             </Link>
           </span>
+          </div>
         </form>
       </div>
     </div>
