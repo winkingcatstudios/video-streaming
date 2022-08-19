@@ -9,11 +9,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+import InfoModal from "../../components/uiElements/InfoModal";
 import "./listItem.scss";
 
 export default function ListItem({ index, item }) {
   const [isHovered, setIsHovered] = useState(false);
   const [video, setVideo] = useState({});
+  const [moreInfo, setMoreInfo] = useState(false);
 
   const navigate = useNavigate();
 
@@ -53,8 +55,18 @@ export default function ListItem({ index, item }) {
     }
   };
 
+  const handleMoreInfoOn = () => {
+    setMoreInfo(true);
+  };
+
+  const handleMoreInfoOff = (e) => {
+    e.preventDefault();
+    setMoreInfo(false);
+  };
+
   return (
     <React.Fragment>
+      {moreInfo && <InfoModal content={video} onClear={handleMoreInfoOff} onPlay={toWatchPage} />}
       <div
         className="listItem"
         onMouseEnter={() => handleHover(true)}
@@ -72,7 +84,7 @@ export default function ListItem({ index, item }) {
                 <PlayArrow onClick={toWatchPage} className="icon" />
                 <Add className="icon" />
                 <ThumbUpAltOutlined className="icon" />
-                <ExpandMore onClick={handleMoreInfo} className="icon" />
+                <ExpandMore onClick={handleMoreInfoOn} className="icon" />
                 {/* <ThumbDownOutlined className="icon" />
                 <ThumbDownOutlined className="icon" /> */}
                 <div className="yearAndRating">

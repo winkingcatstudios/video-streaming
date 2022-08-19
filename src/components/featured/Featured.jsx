@@ -67,7 +67,7 @@ export default function Featured({ type, setGenre }) {
           </select>
         </div>
       )}
-      {moreInfo && <InfoModal content={content} onClear={handleMoreInfoOff} onPlay={toWatchPage} />}
+      {moreInfo && <InfoModal content={content} onClear={handleMoreInfoOff} onPlay={toWatchPage} show={moreInfo} />}
     
       <img src={content.image} alt="" />
       <div className="info">
