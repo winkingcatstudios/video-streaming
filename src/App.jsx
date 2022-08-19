@@ -60,7 +60,7 @@ const App = () => {
     >
       <Suspense
         fallback={
-          <div className="center">
+          <div className="centered">
             <LoadingSpinner />
           </div>
         }
