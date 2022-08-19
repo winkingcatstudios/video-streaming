@@ -68,7 +68,7 @@ export default function Signup() {
         <div className="wrapper">
           <img
             className="logo"
-            src="https://winkingcatstudio.com/winkingcatlogo-transparent-white.png"
+            src="/dice cats - white.png"
             alt=""
           />
         </div>

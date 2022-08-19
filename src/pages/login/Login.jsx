@@ -61,11 +61,7 @@ export default function Login() {
     <div className="login">
       <div className="top">
         <div className="wrapper">
-          <img
-            className="logo"
-            src="https://winkingcatstudio.com/winkingcatlogo-transparent-white.png"
-            alt=""
-          />
+          <img className="logo" src="/dice cats - white.png" alt="" />
         </div>
       </div>
       <div className="container">
@@ -92,15 +88,15 @@ export default function Login() {
             onInput={inputHandler}
           />
           <div className="loginAndSwap">
-          <Button type="submit" disabled={!formState.isValid}>
-            LOGIN
-          </Button>
-          <span className="signUpText">
-            New to Dicecats?{" "}
-            <Link to="/signup" className="link">
-              <b>Sign up now.</b>
-            </Link>
-          </span>
+            <Button type="submit" disabled={!formState.isValid}>
+              LOGIN
+            </Button>
+            <span className="signUpText">
+              New to Dicecats?{" "}
+              <Link to="/signup" className="link">
+                <b>Sign up now.</b>
+              </Link>
+            </span>
           </div>
         </form>
       </div>

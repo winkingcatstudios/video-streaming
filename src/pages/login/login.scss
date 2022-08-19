@@ -49,8 +49,13 @@
         margin-top: 20px;
       }
 
-      .signUpText {
-        margin-bottom: 20px;
+      .loginAndSwap {
+        display: flex;
+        flex-direction: column;
+
+        .signUpText {
+          margin-bottom: 20px;
+        }
       }
 
       input {
