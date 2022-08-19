@@ -8,13 +8,14 @@ import List from "../../components/list/List";
 import ComingSoon from "../../components/comingSoon/ComingSoon";
 
 const MyList = () => {
-  
-
   return (
-    <div className="myList">
-      <Navbar />
-      <ComingSoon />
-    </div>
+    <React.Fragment>
+      <div className="myList">
+        <Navbar />
+        <ComingSoon />
+      </div>
+      <div className="bottomSpacer"></div>
+    </React.Fragment>
   );
 };
 

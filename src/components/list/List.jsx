@@ -12,13 +12,15 @@ export default function List({ list }) {
 
   const listRef = useRef();
 
+  const touch = matchMedia('(hover: none)').matches;
+
   const handleClick = (direction) => {
     setIsMoving(true);
     if (isMoving) {
       return;
     }
     setIsMoving(true);
-    let distance = listRef.current.getBoundingClientRect().x - 70;
+    let distance = listRef.current.getBoundingClientRect().x - (touch ? 43 : 70);
 
     if (direction === "left" && slideNumber > 0) {
       setSlideNumber(slideNumber - 1);
@@ -33,6 +35,7 @@ export default function List({ list }) {
       setIsMoving(false);
     }, 1000);
   };
+
   return (
     <div className="list">
       <span className="listTitle">{list.title}</span>
@@ -44,7 +47,7 @@ export default function List({ list }) {
         />
         <div className="container" ref={listRef}>
           {list.content.map((item, i) => (
-            <ListItem key={i} index={i} item={item} />
+            <ListItem key={i} index={i} item={item} touch={touch} />
           ))}
         </div>
         <ArrowForwardIosOutlined

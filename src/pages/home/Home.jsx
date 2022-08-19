@@ -63,6 +63,7 @@ const Home = ({ type }) => {
     <div className="home">
       <Navbar />
       {content}
+      <div className="bottomSpacer"></div>
     </div>
   );
 };

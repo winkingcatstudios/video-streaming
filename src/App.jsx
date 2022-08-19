@@ -17,6 +17,7 @@ const Watch = React.lazy(() => import("./pages/watch/Watch"));
 const Login = React.lazy(() => import("./pages/login/Login"));
 const MyList = React.lazy(() => import("./pages/myList/MyList"));
 const Settings = React.lazy(() => import("./pages/settings/Settings"));
+const Footer = React.lazy(() => import("./components/uiElements/Footer"))
 
 const App = () => {
   const { token, login, logout, userId, name } = useAuth();
@@ -67,6 +68,7 @@ const App = () => {
         <Router>
           <Routes>{routes}</Routes>
         </Router>
+        {/* <Footer /> */}
       </Suspense>
     </AuthContext.Provider>
   );

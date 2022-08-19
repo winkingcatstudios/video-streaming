@@ -24,80 +24,81 @@
     left: 0;
   }
 
-  &:hover {
-    transform: scale(1.5, 2.4) !important;
-    border-radius: 5px;
-    -webkit-box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.07);
-    box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.07);
+  @media (hover: hover) {
+    &:hover {
+      transform: scale(1.5, 2.4) !important;
+      border-radius: 5px;
+      -webkit-box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.07);
+      box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.07);
 
-    img {
-      // transform: scale(1, 0.42) translateY(-70%);
-      transform: scale(1, 0.698) translateY(-30%);
-      height: 162px;
-    }
+      img {
+        transform: scale(1, 0.698) translateY(-30%);
+        height: 162px;
+      }
 
-    .itemInfo {
-      position: absolute;
-      bottom: 0px;
-      transform: scale(1, 0.698) translateY(50%);
-      display: flex;
-      flex-direction: column;
-      padding: 5px;
-      margin-left: 5px;
-
-      .iconsInfo {
+      .itemInfo {
+        position: absolute;
+        bottom: 0px;
+        transform: scale(1, 0.698) translateY(50%);
         display: flex;
-        margin-bottom: 10px;
-        margin-top: -70px;
-        align-items: center;
+        flex-direction: column;
+        padding: 5px;
+        margin-left: 5px;
 
-        .icon {
-          border: 2px solid white;
-          padding: 5px;
-          border-radius: 50%;
-          margin-right: 10px;
-          font-size: 14px;
-          cursor: pointer;
-        }
+        .iconsInfo {
+          display: flex;
+          margin-bottom: 10px;
+          margin-top: -70px;
+          align-items: center;
 
-        .yearAndRating {
-          margin-left: 10px;
-
-          .year {
-            font-size: 20px;
-            margin-right: 20px;
-          }
-          
-          .limit {
+          .icon {
             border: 2px solid white;
-            padding: 2px;
+            padding: 5px;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-size: 14px;
+            cursor: pointer;
+          }
+
+          .yearAndRating {
+            margin-left: 10px;
+
+            .year {
+              font-size: 20px;
+              margin-right: 20px;
+            }
+
+            .limit {
+              border: 2px solid white;
+              padding: 2px;
+            }
           }
         }
-      }
-      .itemInfoTop {
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
-        font-size: 10px;
-        font-weight: 600;
-        color: gray;
+        .itemInfoTop {
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+          font-size: 10px;
+          font-weight: 600;
+          color: gray;
 
-        .limit {
-          border: 1px solid gray;
-          padding: 1px 3px;
-          margin: 0 10px;
+          .limit {
+            border: 1px solid gray;
+            padding: 1px 3px;
+            margin: 0 10px;
+          }
         }
-      }
 
-      .title {
-        font-size: 13px;
-        margin-bottom: 10px;
-        margin-top: -10px;
-      }
+        .title {
+          font-size: 13px;
+          margin-bottom: 10px;
+          margin-top: -10px;
+        }
 
-      .genre {
-        font-size: 10px;
-        color: lightgray;
+        .genre {
+          font-size: 10px;
+          color: lightgray;
+        }
       }
     }
   }

@@ -43,7 +43,7 @@ const Navbar = () => {
               <Menu className="menuIcon" />
             </button>
             <img
-              src="https://winkingcatstudio.com/winkingcatlogo-transparent-white.png"
+              src="/dice cats - white.png"
               alt=""
             />
             <h1 className="titleName">DICE CATS</h1>

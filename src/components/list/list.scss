@@ -41,3 +41,50 @@
     }
   }
 }
+
+@media screen and (max-width: 480px) {
+  .list {
+    width: 100%;
+    margin-top: 70px;
+  
+    .listTitle {
+      color: rgb(240, 240, 240);
+      font-size: 28px;
+      font-weight: 500;
+      margin-left: 50px;
+    }
+  
+    .wrapper {
+      position: relative;
+      .sliderArrow {
+        width: 35px;
+        height: 100%;
+        background-color: rgb(22, 22, 22, 0.5);
+        color: white;
+        position: absolute;
+        z-index: 99;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        cursor: pointer;
+  
+        &.left {
+          left: 0;
+        }
+  
+        &.right {
+          right: 0;
+        }
+      }
+      .container {
+        margin-left: 43px;
+        display: flex;
+        margin-top: 15px;
+        width: max-content;
+        transform: translateX(0px);
+        transition: all 1s ease;
+      }
+    }
+  }
+}
+

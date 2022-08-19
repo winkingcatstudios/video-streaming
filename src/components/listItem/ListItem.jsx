@@ -3,7 +3,7 @@ import {
   Add,
   ThumbUpAltOutlined,
   ThumbDownOutlined,
-  ExpandMore
+  ExpandMore,
 } from "@material-ui/icons";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import InfoModal from "../../components/uiElements/InfoModal";
 import "./listItem.scss";
 
-export default function ListItem({ index, item }) {
+export default function ListItem({ index, item, touch }) {
   const [isHovered, setIsHovered] = useState(false);
   const [video, setVideo] = useState({});
   const [moreInfo, setMoreInfo] = useState(false);
@@ -43,10 +43,6 @@ export default function ListItem({ index, item }) {
     navigate("/watch", { state: { video: video } });
   };
 
-  const handleMoreInfo = () => {
-    navigate("/watch", { state: { video: video } });
-  }
-
   const handleHover = (toggle) => {
     if (toggle) {
       setIsHovered(true);
@@ -64,69 +60,113 @@ export default function ListItem({ index, item }) {
     setMoreInfo(false);
   };
 
+  let content;
+
+  if (touch) {
+    content = (
+      <React.Fragment>
+        {moreInfo && (
+          <InfoModal
+            content={video}
+            onClear={handleMoreInfoOff}
+            onPlay={toWatchPage}
+          />
+        )}
+        <div
+          className="listItem"
+          onClick={() => {
+            handleMoreInfoOn();
+          }}
+        >
+          <img src={video.imageThumb} alt="" />
+        </div>
+      </React.Fragment>
+    );
+  } else {
+    content = (
+      <React.Fragment>
+        {moreInfo && (
+          <InfoModal
+            content={video}
+            onClear={handleMoreInfoOff}
+            onPlay={toWatchPage}
+          />
+        )}
+        <div
+          className="listItem"
+          onMouseEnter={() => handleHover(true)}
+          onMouseLeave={() => handleHover(false)}
+          onClick={() => {
+            handleMoreInfoOn();
+          }}
+        >
+          {!isHovered && <img src={video.imageThumb} alt="" />}
+          {isHovered && !touch && (
+            <React.Fragment>
+              <img onClick={toWatchPage} src={video.imageThumb} alt="" />
+              <div className="itemInfo">
+                <div className="iconsInfo">
+                  <PlayArrow onClick={toWatchPage} className="icon" />
+                  <Add className="icon" />
+                  <ThumbUpAltOutlined className="icon" />
+                  <ExpandMore onClick={handleMoreInfoOn} className="icon" />
+                  {/* <ThumbDownOutlined className="icon" />
+                <ThumbDownOutlined className="icon" /> */}
+                  <div className="yearAndRating">
+                    <span className="year">{video.year}</span>
+                    <span className="limit">{video.ageLimit}+</span>
+                  </div>
+                </div>
+                <div className="itemInfoTop"></div>
+                <h1 className="title">{video.title}</h1>
+              </div>
+            </React.Fragment>
+          )}
+        </div>
+      </React.Fragment>
+    );
+  }
+
   return (
     <React.Fragment>
-      {moreInfo && <InfoModal content={video} onClear={handleMoreInfoOff} onPlay={toWatchPage} />}
-      <div
-        className="listItem"
-        onMouseEnter={() => handleHover(true)}
-        onMouseLeave={() => handleHover(false)}
-        // onClick={() => {
-        //   toWatchPage();
-        // }}
-      >
-        {!isHovered && <img src={video.imageThumb} alt="" />}
-        {isHovered && (
-          <React.Fragment>
-            <img onClick={toWatchPage} src={video.imageThumb} alt="" />
-            <div className="itemInfo">
-              <div className="iconsInfo">
-                <PlayArrow onClick={toWatchPage} className="icon" />
-                <Add className="icon" />
-                <ThumbUpAltOutlined className="icon" />
-                <ExpandMore onClick={handleMoreInfoOn} className="icon" />
-                {/* <ThumbDownOutlined className="icon" />
-                <ThumbDownOutlined className="icon" /> */}
-                <div className="yearAndRating">
-                  <span className="year">{video.year}</span>
-                  <span className="limit">{video.ageLimit}+</span>
-                </div>
-              </div>
-              <div className="itemInfoTop"></div>
-              <h1 className="title">{video.title}</h1>
-            </div>
-          </React.Fragment>
+        {moreInfo && (
+          <InfoModal
+            content={video}
+            onClear={handleMoreInfoOff}
+            onPlay={toWatchPage}
+          />
         )}
-      </div>
-    </React.Fragment>
+        <div
+          className="listItem"
+          onMouseEnter={() => handleHover(true)}
+          onMouseLeave={() => handleHover(false)}
+          onClick={() => {
+            handleMoreInfoOn();
+          }}
+        >
+          {!isHovered && <img src={video.imageThumb} alt="" />}
+          {isHovered && (
+            <React.Fragment>
+              <img onClick={toWatchPage} src={video.imageThumb} alt="" />
+              <div className="itemInfo">
+                <div className="iconsInfo">
+                  <PlayArrow onClick={toWatchPage} className="icon" />
+                  <Add className="icon" />
+                  <ThumbUpAltOutlined className="icon" />
+                  <ExpandMore onClick={handleMoreInfoOn} className="icon" />
+                  {/* <ThumbDownOutlined className="icon" />
+                <ThumbDownOutlined className="icon" /> */}
+                  <div className="yearAndRating">
+                    <span className="year">{video.year}</span>
+                    <span className="limit">{video.ageLimit}+</span>
+                  </div>
+                </div>
+                <div className="itemInfoTop"></div>
+                <h1 className="title">{video.title}</h1>
+              </div>
+            </React.Fragment>
+          )}
+        </div>
+      </React.Fragment>
   );
 }
-
-// {video.ageLimit !== 0 && (
-//   <span className="limit">{video.ageLimit}</span>
-// )}
-
-{
-  /* {isHovered && (
-          <React.Fragment>
-            {/* <img src={video.imageThumb} alt="" /> */
-}
-//     <div className="itemInfo">
-//       <div className="icons">
-//         <PlayArrow className="icon" />
-//         <Add className="icon" />
-//         <ThumbUpAltOutlined className="icon" />
-//         <ThumbDownOutlined className="icon" />
-//       </div>
-//       <div className="itemInfoTop">
-//         {video.ageLimit !== 0 && (
-//           <span className="limit">{video.ageLimit}</span>
-//         )}
-//         <span>{video.year}</span>
-//       </div>
-//       <h1 className="desc">{video.title}</h1>
-//       <div className="desc">{video.description}</div>
-//       <div className="genre">Genre: {video.genre}</div>
-//     </div>
-//   </React.Fragment>
-// )} */}
